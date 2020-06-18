@@ -1,26 +1,39 @@
 
 export class View {
-    constructor(rootSelector) {
+    constructor(rootSelector){
         const newField = document.querySelector(rootSelector + ' .new-todo')
-        this.addEventListeners(newField);
+        this.addEventListeners(newField)
     }
+
+    render(items){
+        items.forEach(item => this.addItemToList(item))
+        }
 
     addEventListeners(newField) {
         newField.addEventListener('keypress', (ev) => {
             if (ev.key === 'Enter') {
                 const text = ev.target.value
+                const newItem = {description: text}
 
-                const newTodoEl = document.createElement('li')
-                const label = document.createElement('label')
-                label.innerText = text
-                newTodoEl.appendChild(label) //<li> <label>text...</label> </li>
-                document.querySelector('.todo-list').appendChild(newTodoEl)
+                // call onAddItem Handler
+                const result = this.onAddItemHandler(newItem)
+                if(result.message !== ""){
+                    alert(result.message)
+                }
             }
         })
     }
+
+    addItemToList(item){
+        const newTodoEl = document.createElement('li')
+        const label = document.createElement('label')
+        label.innerText = item.description
+        newTodoEl.appendChild(label) // <li> <label>text...</label> </li>
+        document.querySelector('.todo-list').appendChild(newTodoEl)
+    }
+
+    registerOnAdItemHandler(onAddItemHandler){
+        this.onAddItemHandler = onAddItemHandler
+    }
+
 }
-
-
-
-
-

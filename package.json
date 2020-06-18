@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "rm -rf .cache && npx parcel self/app/index.html",
-    "test": "npm run test:unit && npm run test:e2e",
+    "test": "./node_modules/.bin/mocha self/test/unit/**.js",
     "test:unit": "npx mocha src/test/unit/**.js",
     "hub": "npx selenium-standalone start",
     "test:e2e": "npx mocha src/test/e2e/*.test.js --timeout 5000",
@@ -23,7 +23,7 @@
     "chromedriver": "81.0.0",
     "eslint": "6.7.2",
     "he": "1.2.0",
-    "mocha": "^7.1.2",
+    "mocha": "^7.2.0",
     "parcel": "1.12.4",
     "selenium-webdriver": "3.6.0",
     "sinon": "7.5.0"
