@@ -1,4 +1,6 @@
+import 'regenerator-runtime/runtime'
 // import Store from './store.local.js'
+
 import Store from './store.remote.await.js'
 // import Store from './store.remote.promises.js'
 import {View, events as viewEvents} from './view.js'

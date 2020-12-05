@@ -6,7 +6,7 @@
  */
 export default class Store{
     constructor(name){
-        this.serverUrl = 'http://localhost:4567'
+        this.serverUrl = 'http://localhost:8000'
         this.name = name
     }
 
@@ -29,7 +29,23 @@ export default class Store{
     }
 
     async remove(id){
-      throw new Error('Store.remove is not implemented yet!')
+      let headers = new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      })
+      const resp = await fetch(this.serverUrl + '/todo/items/' + id, {
+        method: 'DELETE',
+        headers,
+        credentials: 'include'
+      })
+
+      if (resp.ok === true) {
+        return resp.json()
+      } else {
+        throw resp
+      }
+
+
     }
 
     async all(){

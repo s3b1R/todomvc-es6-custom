@@ -5,13 +5,15 @@
   "author": "Ueli Kunz <kunz@ideadapt.net>",
   "license": "MIT",
   "scripts": {
-    "start": "rm -rf .cache && npx parcel self/app/index.html",
-    "test": "./node_modules/.bin/mocha self/test/unit/**.js",
+    "start": "rm -rf .cache && npx parcel src/app/index.html",
+    "test": "./node_modules/.bin/mocha src/test/unit/**.js",
+    "start-parcel": "rm -rf .cache && npx parcel src/app/index.html",
     "test:unit": "npx mocha src/test/unit/**.js",
     "hub": "npx selenium-standalone start",
     "test:e2e": "npx mocha src/test/e2e/*.test.js --timeout 5000",
     "dist": "NODE_ENV=production rm -rf dist && npx parcel build src/app/index.html"
   },
+  "browserslist": ["last 2 chrome versions"],
   "devDependencies": {
     "@babel/cli": "7.7.5",
     "@babel/core": "7.7.5",
@@ -29,6 +31,7 @@
     "sinon": "7.5.0"
   },
   "dependencies": {
+    "regenerator-runtime": "^0.13.5",
     "todomvc-app-css": "2.3.0"
   }
 }
