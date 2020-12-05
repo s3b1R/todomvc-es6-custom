@@ -6,8 +6,8 @@
  */
 export default class Store{
     constructor(name){
-        this.serverUrl = 'http://localhost:8000'
-        this.name = name
+      this.serverUrl = 'http://localhost:4567'
+      this.name = name
     }
 
     async add(item){
@@ -28,7 +28,7 @@ export default class Store{
         }
     }
 
-    async remove(id){
+    async remove(id) {
       let headers = new Headers({
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -44,8 +44,6 @@ export default class Store{
       } else {
         throw resp
       }
-
-
     }
 
     async all(){
