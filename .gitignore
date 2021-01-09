@@ -147,6 +147,8 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+*.pem
+
 # Windows shortcuts
 *.lnk
 ### SublimeText template
@@ -185,3 +187,4 @@ mochawesome-report/
 
 
 .env
+*.mp4
