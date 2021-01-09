@@ -7,7 +7,7 @@ services:
       - todonet
 
   server:
-    image: sebirhz/todomvc-java-server
+    image: sebirhz/todomvc-java-server:latest
     networks:
       - todonet
     environment:
